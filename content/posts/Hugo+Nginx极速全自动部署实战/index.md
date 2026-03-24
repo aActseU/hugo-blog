@@ -4,9 +4,9 @@ date: 2026-03-24T17:30:00+09:00
 draft: false
 ---
 
-在 2026 年的今天，拥有一个属于自己的博客依然是记录思考、分享技术的最酷方式。对于我们这些手握 AWS EC2 t2.micro 或 Lightsail 这种“小机器”的技术人来说，传统的 Jenkins 或 GitLab CI 部署方案简直就是“内存杀手”。
+在 2026 年的今天，拥有一个属于自己的博客依然是记录思考、分享技术的最酷方式。对于我们这些手握 AWS EC2 t2.micro 这种“小机器”的技术人来说，传统的 Jenkins 或 GitLab CI 部署方案简直就是“内存杀手”。
 
-最近，我通过一次精彩的探索，成功搭建了一套完美的、基于 **Hugo + Nginx + Webhook** 的极速全自动部署系统。它不依赖复杂的 CI/CD 工具，不占用不必要的内存，完美适应无域名环境。更重要的是，在搭建过程中，我把所有可能遇到的坑（权限、路径、版本代沟）都踩了一遍。
+最近，我通过一个下午的探索，成功搭建了一套完美的、基于 **Hugo + Nginx + Webhook** 的极速全自动部署系统。它不依赖复杂的 CI/CD 工具，不占用不必要的内存，完美适应无域名环境。更重要的是，在搭建过程中，我把所有可能遇到的坑（权限、路径、版本代沟）都踩了一遍。
 
 本教程就是基于这次实战的探索，为你整理的“避坑版”指南。
 
@@ -82,7 +82,7 @@ sudo nano /etc/nginx/sites-available/blog
 server {
     listen 80;
     # 填入你的公网 IP
-    server_name 13.212.22.21; 
+    server_name 你的公网 IP 或域名; 
 
     # 指定 Hugo 生成的 public 文件所在目录
     root /var/www/blog;
@@ -159,7 +159,7 @@ chmod +x /home/ubuntu/deploy.sh
     ```bash
     nano /home/ubuntu/hooks.json
     ```
-    填入以下安全配置，把 `你的超强秘钥_openssl生成的` 替换成上面的随机字符串：
+    填入以下安全配置，把 `你的超强密钥_openssl生成的` 替换成上面的随机字符串：
     ```json
     [
       {
@@ -170,7 +170,7 @@ chmod +x /home/ubuntu/deploy.sh
         "trigger-rule": {
           "match": {
             "type": "payload-hash-sha256",
-            "secret": "你的超强秘钥_openssl生成的",
+            "secret": "你的超强密钥_openssl生成的",
             "parameter": {
               "source": "header",
               "name": "X-Hub-Signature-256"
@@ -215,7 +215,7 @@ sudo systemctl enable --now webhook
 2.  **Payload URL**: `http://你的公网IP:9000/hooks/deploy-blog`
 3.  **Content type**: 选择 `application/json`
 4.  **Secret**: 填入你刚才在 `hooks.json` 中设置的那串随机密钥。
-5.  **SSL verification**: 选择红色标明的 **Disable (not recommended)**（因为我们没有 HTTPS，不禁用会导致 GitHub 报错）。
+5.  **SSL verification**: 选择红色标明的 **Disable (not recommended)**（因为我们没有 HTTPS，不禁用会导致 GitHub 报错，**如果你有域名**，当然要选 **Enable SSL verification**）。
 6.  **Which events...**: 保持默认的 **Just the push event.** 即可。
 
 ---
