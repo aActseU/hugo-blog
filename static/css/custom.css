@@ -1,99 +1,95 @@
-/* 1. 引入高级感衬线体 (Newsreader) */
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+/* ==========================================================================
+   1. 字体系统重构：引入顶级学术开源字体
+   Lora: 专为屏幕阅读优化的经典英文字体，极具学术感
+   Noto Serif SC (思源宋体): 谷歌与Adobe联合开发的工业级中文衬线体，彻底解决“太细”问题
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Serif+SC:wght@400;600;700&display=swap');
 
-/* 2. 全局基础：纸张质感与呼吸感 */
+/* 全局基础设置：干净的纸张白，而不是刺眼的纯白 */
 body {
-    background-color: #fdf6f2 !important; /* 浅米色背景 */
-    color: #1a1a1a !important;
-    font-family: 'Newsreader', serif !important;
+    background-color: #fafafa !important; 
+    color: #222 !important; /* 极深的灰黑色，比纯黑更护眼 */
+    font-family: 'Lora', 'Noto Serif SC', "Source Han Serif SC", STZhongsong, serif !important;
     line-height: 1.8;
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased; /* 强制字体平滑，边缘不再锯齿 */
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* 3. 彻底改造页眉 (Header)：消灭黑框 */
-.bg-black-60 {
-    background-color: transparent !important; /* 去掉黑色遮罩 */
+/* ==========================================================================
+   2. 彻底拔除 Ananke 主题的黑色基因 (那个巨大的黑框)
+   ========================================================================== */
+.bg-black, .bg-black-60, .bg-black-90, .bg-top {
+    background-color: transparent !important;
+    background-image: none !important;
 }
 
+/* 修复顶部导航栏文字颜色 (因为背景变白了，原有的白字必须变黑) */
+.white-70, .white, nav a {
+    color: #444 !important;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   3. 首页大标题与排版空间优化
+   ========================================================================== */
+/* 压缩顶部巨大留白 */
 .cover {
-    background-image: none !important; /* 去掉背景图 */
     min-height: auto !important;
-    padding-top: 80px;
-    padding-bottom: 40px;
+    padding-top: 3rem !important;
+    padding-bottom: 2rem !important;
 }
 
-/* 网站大标题样式 */
+/* 首页中心博客名称 */
 header h1 {
-    color: #1a1a1a !important;
-    font-size: 3.5rem !important;
-    font-weight: 500 !important;
-    text-align: left !important; /* 靠左对齐 */
-    max-width: 900px;
-    margin: 0 auto !important;
-    padding: 0 20px;
+    color: #111 !important;
+    font-weight: 700 !important;
+    font-size: 2.8rem !important;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #222; /* 添加一条学术风的粗底线 */
+    padding-bottom: 1rem;
+    display: inline-block;
 }
 
-/* 4. 内容区域宽度与排版 */
+/* ==========================================================================
+   4. 学术风列表与正文排版 (像阅读 PDF 一样)
+   ========================================================================== */
+/* 限制最大阅读宽度，居中对齐 */
 .mw7 {
-    max-width: 900px !important;
+    max-width: 850px !important;
     margin: 0 auto !important;
-    padding: 40px 20px !important;
+    padding: 0 20px !important;
 }
 
-/* 5. 文章列表项样式：极简线条 */
+/* 列表分割线与间距 */
 article {
-    margin-bottom: 5rem !important;
+    border-bottom: 1px solid #ddd; /* 经典的灰色分割线 */
     padding-bottom: 2rem;
-    border-bottom: 0.5px solid rgba(0,0,0,0.05); /* 极其淡的分割线 */
+    margin-bottom: 3rem !important;
 }
 
-/* 文章标题链接 */
-article h2 a {
-    color: #1a1a1a !important;
-    font-size: 1.8rem !important;
+/* 文章标题链接：使用经典的学术深蓝色 (#00509E) */
+article h2 a, .post-title a {
+    color: #00509E !important; 
+    font-weight: 700 !important;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s;
 }
 
 article h2 a:hover {
-    color: #d14130 !important; /* 悬停变为暗红色 */
+    color: #cc0000 !important; /* 悬停变成暗红色提示 */
+    text-decoration: underline;
 }
 
-/* 文章摘要文字 (没有 description 时的默认摘要) */
-.nested-copy-line-height {
+/* 正文段落：两端对齐 (论文标准格式) */
+p {
+    text-align: justify;
     font-size: 1.1rem;
-    color: #4a4a4a;
-    margin-top: 1rem;
+    color: #333;
 }
 
-/* 6. 隐藏所有“杂音”：日期、标签、Read More 按钮 */
-.post-meta, 
-.f6, 
-.ttu, 
-.pa2, 
-.ba {
+/* ==========================================================================
+   5. 隐藏非必要元素，保持页面极度纯净
+   ========================================================================== */
+.post-meta, .f6, .ttu, .pa2, .ba {
     display: none !important; 
-}
-
-/* 如果你还是想要一个超简洁的“阅读更多”，取消下面注释 */
-/*
-article::after {
-    content: "Read full post ↗";
-    display: block;
-    margin-top: 15px;
-    color: #d14130;
-    font-style: italic;
-    font-size: 0.9rem;
-}
-*/
-
-/* 7. 响应式微调：手机端也好看 */
-@media screen and (max-width: 600px) {
-    header h1 {
-        font-size: 2.2rem !important;
-    }
-    article {
-        margin-bottom: 3rem !important;
-    }
 }
