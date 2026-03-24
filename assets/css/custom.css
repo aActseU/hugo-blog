@@ -1,0 +1,53 @@
+/* 1. 引入高级感字体 (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
+/* 2. 全局背景与基础文字 */
+body {
+    background-color: #fdf6f2 !important; /* 淡淡的米色，极具纸张质感 */
+    color: #1a1a1a !important;
+    font-family: 'Newsreader', serif !important;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased; /* 让文字更清晰 */
+}
+
+/* 3. 首页容器宽度控制（营造呼吸感） */
+.mw7 {
+    max-width: 900px !important; /* 限制宽度，不要铺满全屏 */
+    margin: 0 auto;
+    padding: 100px 20px; /* 上下留出大量空白 */
+}
+
+/* 4. 隐藏不需要的视觉杂点 */
+.post-meta, .f6, .ttu { 
+    display: none !important; /* 隐藏日期、标签、分类 */
+}
+
+/* 5. 标题样式：克制、优雅 */
+h1, h2, h3 {
+    font-weight: 500 !important;
+    letter-spacing: -0.02em;
+}
+
+/* 首页文章标题列表 */
+.f3 {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.5rem;
+}
+
+/* 6. 链接效果：仿照 Amanda 的红色箭头风格 */
+a {
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #d14130; /* 鼠标悬停变暗红 */
+}
+
+/* 给描述文字加一个小箭头 */
+.description::after {
+    content: " ↗";
+    color: #d14130;
+    font-size: 0.9em;
+}

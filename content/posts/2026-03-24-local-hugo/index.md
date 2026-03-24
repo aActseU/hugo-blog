@@ -5,7 +5,7 @@ draft: false
 ---
 
 ## 📋 核心逻辑简述
-要实现“本地写稿 $\rightarrow$ GitHub 托管 $\rightarrow$ AWS 自动编译部署”，关键在于**源码（Source Code）**。Hugo 本质上是一个把 Markdown 转换成 HTML 的翻译官。我们现在的任务是在本地搭建好这个“翻译工厂”，然后把图纸扔到 GitHub 上。
+要实现“本地写稿 $\rightarrow$ GitHub 托管 $\rightarrow$ AWS 自动编译部署”，关键在于**源码**。Hugo 本质上是一个把 Markdown 转换成 HTML 的翻译官。我们现在的任务是在本地搭建好这个“翻译工厂”，然后把图纸扔到 GitHub 上。
 
 ---
 
