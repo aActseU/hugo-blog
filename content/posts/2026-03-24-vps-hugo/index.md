@@ -18,6 +18,67 @@ draft: false
 
 ---
 
+## 核心系统架构：数据是怎么流动的？
+
+整套自动化部署系统是一条单向的“流水线”，无需人为干预。以下是每次你写完新文章后的完整流转过程：
+
+```text
+[ 本地电脑 (Obsidian / VS Code) ]
+       │
+       │ 1. git push (推送源码)
+       ▼
+[ GitHub 远程仓库 ]
+       │
+       │ 2. 触发 Webhook (携带 Secret 签名校验)
+       │    发送 POST 请求到 http://公网IP:9000
+       ▼
+[ AWS 服务器 - Webhook 监听服务 ]
+       │
+       │ 3. 校验通过，在后台执行 deploy.sh 脚本
+       ▼
+[ 部署脚本 (deploy.sh) 执行核心动作 ]
+       ├─> ① Git Pull: 拉取最新源码和主题子模块
+       ├─> ② Hugo Build: 编译生成最新静态网页
+       └─> ③ Chmod: 自动修复文件权限，防 403 报错
+       │
+       ▼
+[ Nginx Web 服务器 (监听 80 端口) ]
+       │
+       │ 4. 直接读取 /var/www/blog 目录下的最新文件
+       ▼
+[ 互联网读者 ] -> 访问你的公网 IP -> 看到最新文章
+```
+
+---
+
+## 服务器核心目录结构
+
+为了保证权限安全且条理清晰，我们将“源码存放区”和“网站展示区”做了严格的物理隔离。以下是配置完成后，AWS 服务器上的核心文件分布：
+
+```text
+/ (服务器根目录)
+├── home/ubuntu/                 <-- ubuntu 用户的家目录（工作区）
+│   ├── hugo-site/               <-- 你的 Hugo 博客源码仓库 (Git Pull 的目的地)
+│   │   ├── content/posts/       <-- 你的 Markdown 文章存在这里
+│   │   ├── themes/ananke/       <-- Git 子模块拉取的主题代码
+│   │   └── ...
+│   ├── deploy.sh                <-- 自动化部署的 Bash 核心脚本
+│   └── hooks.json               <-- Webhook 的规则与密码(Secret)配置文件
+│
+├── var/www/blog/                <-- Nginx 的网站托管目录（展示区）
+│   ├── index.html               <-- Hugo 自动编译生成的主页
+│   ├── images/                  <-- 文章的静态图片
+│   └── ...                      <-- (每次部署都会被先清空，再由 Hugo 重新生成)
+│
+├── etc/nginx/sites-available/   <-- Nginx 配置文件目录
+│   └── blog                     <-- 告诉 Nginx 如何处理你公网 IP 访问请求的配置
+│
+└── etc/systemd/system/          <-- 系统服务目录
+    └── webhook.service          <-- 让 Webhook 保持 24 小时后台运行的服务配置
+```
+
+---
+
 ## 1. 准备工作
 
 ### AWS 安全组配置
