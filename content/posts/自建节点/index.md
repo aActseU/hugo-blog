@@ -9,7 +9,7 @@ draft: false
 * sing-box
 * Ubuntu 24.04.4
 ### 添加入站规则
-添加一个端口，接收TCP，如 10086 端口。![[Pasted image 20260323192916.png]]
+添加一个端口，接收TCP，如 10086 端口。![如图](security_group.png)
 # 基础：朴素 sing-box + clash verge
 所谓朴素 sing-box 就是 `客户端 -> 服务器10086端口 -> sing-box 服务`，入站类型采用`shadowsocks`，方法使用`aes-128-gcm`。
 ### 安装 sing-box
