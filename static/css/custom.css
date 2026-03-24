@@ -1,53 +1,99 @@
-/* 1. 引入高级感字体 (Google Fonts) */
+/* 1. 引入高级感衬线体 (Newsreader) */
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
 
-/* 2. 全局背景与基础文字 */
+/* 2. 全局基础：纸张质感与呼吸感 */
 body {
-    background-color: #fdf6f2 !important; /* 淡淡的米色，极具纸张质感 */
+    background-color: #fdf6f2 !important; /* 浅米色背景 */
     color: #1a1a1a !important;
     font-family: 'Newsreader', serif !important;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased; /* 让文字更清晰 */
+    line-height: 1.8;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* 3. 首页容器宽度控制（营造呼吸感） */
-.mw7 {
-    max-width: 900px !important; /* 限制宽度，不要铺满全屏 */
-    margin: 0 auto;
-    padding: 100px 20px; /* 上下留出大量空白 */
+/* 3. 彻底改造页眉 (Header)：消灭黑框 */
+.bg-black-60 {
+    background-color: transparent !important; /* 去掉黑色遮罩 */
 }
 
-/* 4. 隐藏不需要的视觉杂点 */
-.post-meta, .f6, .ttu { 
-    display: none !important; /* 隐藏日期、标签、分类 */
+.cover {
+    background-image: none !important; /* 去掉背景图 */
+    min-height: auto !important;
+    padding-top: 80px;
+    padding-bottom: 40px;
 }
 
-/* 5. 标题样式：克制、优雅 */
-h1, h2, h3 {
+/* 网站大标题样式 */
+header h1 {
+    color: #1a1a1a !important;
+    font-size: 3.5rem !important;
     font-weight: 500 !important;
-    letter-spacing: -0.02em;
+    text-align: left !important; /* 靠左对齐 */
+    max-width: 900px;
+    margin: 0 auto !important;
+    padding: 0 20px;
 }
 
-/* 首页文章标题列表 */
-.f3 {
-    font-size: 1.5rem !important;
-    margin-bottom: 0.5rem;
+/* 4. 内容区域宽度与排版 */
+.mw7 {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    padding: 40px 20px !important;
 }
 
-/* 6. 链接效果：仿照 Amanda 的红色箭头风格 */
-a {
-    color: #1a1a1a;
+/* 5. 文章列表项样式：极简线条 */
+article {
+    margin-bottom: 5rem !important;
+    padding-bottom: 2rem;
+    border-bottom: 0.5px solid rgba(0,0,0,0.05); /* 极其淡的分割线 */
+}
+
+/* 文章标题链接 */
+article h2 a {
+    color: #1a1a1a !important;
+    font-size: 1.8rem !important;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-a:hover {
-    color: #d14130; /* 鼠标悬停变暗红 */
+article h2 a:hover {
+    color: #d14130 !important; /* 悬停变为暗红色 */
 }
 
-/* 给描述文字加一个小箭头 */
-.description::after {
-    content: " ↗";
+/* 文章摘要文字 (没有 description 时的默认摘要) */
+.nested-copy-line-height {
+    font-size: 1.1rem;
+    color: #4a4a4a;
+    margin-top: 1rem;
+}
+
+/* 6. 隐藏所有“杂音”：日期、标签、Read More 按钮 */
+.post-meta, 
+.f6, 
+.ttu, 
+.pa2, 
+.ba {
+    display: none !important; 
+}
+
+/* 如果你还是想要一个超简洁的“阅读更多”，取消下面注释 */
+/*
+article::after {
+    content: "Read full post ↗";
+    display: block;
+    margin-top: 15px;
     color: #d14130;
-    font-size: 0.9em;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+*/
+
+/* 7. 响应式微调：手机端也好看 */
+@media screen and (max-width: 600px) {
+    header h1 {
+        font-size: 2.2rem !important;
+    }
+    article {
+        margin-bottom: 3rem !important;
+    }
 }
