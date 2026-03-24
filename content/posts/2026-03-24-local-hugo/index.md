@@ -34,7 +34,7 @@ git init
 * **解决方案**：利用本地的 Clash 代理（假设端口为 7890）。
     ```bash
     git config --global http.proxy http://127.0.0.1:7890
-    git config --global https.proxy http://127.0.0.1:7890
+    git config --global https.proxy https://127.0.0.1:7890
     ```
 * **经验**：Git 不会自动识别系统代理，必须手动“指路”。
 
