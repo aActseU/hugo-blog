@@ -1,0 +1,45 @@
+/* assets/css/custom.css */
+
+:root {
+  /* 主色调：偏蓝紫会更有“技术博客”感 */
+  --primary-hue: 230deg;
+  --primary-saturation: 85%;
+  --primary-lightness: 55%;
+
+  /* 页面更宽一点，文章列表没那么“挤” */
+  --hextra-max-page-width: 88rem;
+  --hextra-max-navbar-width: 92rem;
+  --hextra-max-footer-width: 88rem;
+}
+
+/* 正文排版更舒服 */
+.content {
+  line-height: 1.85;
+}
+
+/* 首页文章列表标题悬停更灵动 */
+article h2 a,
+article h3 a {
+  transition: all 0.2s ease;
+}
+
+article h2 a:hover,
+article h3 a:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+/* 给文章摘要一点层次 */
+article p {
+  color: rgba(100, 100, 100, 0.95);
+}
+
+html.dark article p {
+  color: rgba(180, 180, 180, 0.95);
+}
+
+/* Read more 按钮更像按钮 */
+article a[href]:has-text("Read more") {
+  font-weight: 600;
+}
