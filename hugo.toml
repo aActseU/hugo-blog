@@ -1,6 +1,16 @@
 baseURL = 'http://13.212.22.21/'
-languageCode = 'en-us'
-title = '我的 Hugo 博客'
-theme = 'ananke'
-[params]
-  custom_css = ["css/custom.css"]
+languageCode = 'zh-cn'
+title = '我的云端博客'
+theme = 'hextra'
+
+[markup.highlight]
+noClasses = false
+
+[[menu.main]]
+  name = "博客"
+  pageRef = "/blog"
+  weight = 1
+[[menu.main]]
+  name = "关于我"
+  pageRef = "/about" 
+  weight = 2
