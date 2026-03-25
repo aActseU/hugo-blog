@@ -1,45 +1,149 @@
-/* assets/css/custom.css */
-
 :root {
-  /* 主色调：偏蓝紫会更有“技术博客”感 */
-  --primary-hue: 230deg;
+  --primary-hue: 225deg;
   --primary-saturation: 85%;
-  --primary-lightness: 55%;
+  --primary-lightness: 58%;
 
-  /* 页面更宽一点，文章列表没那么“挤” */
   --hextra-max-page-width: 88rem;
   --hextra-max-navbar-width: 92rem;
   --hextra-max-footer-width: 88rem;
 }
 
-/* 正文排版更舒服 */
+/* 全站正文更舒服一点 */
 .content {
   line-height: 1.85;
 }
 
-/* 首页文章列表标题悬停更灵动 */
-article h2 a,
-article h3 a {
-  transition: all 0.2s ease;
+/* =========================
+   列表页：总标题更像总标题
+   ========================= */
+main h1 {
+  font-size: 2.9rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 3.2rem;
+  text-align: center;
 }
 
-article h2 a:hover,
-article h3 a:hover {
-  opacity: 0.85;
+/* 窄屏下避免标题过大 */
+@media (max-width: 768px) {
+  main h1 {
+    font-size: 2.2rem;
+    margin-bottom: 2.4rem;
+  }
+}
+
+/* =========================
+   文章列表整体层次优化
+   ========================= */
+
+/* 每篇文章之间拉开距离 */
+main article {
+  margin-bottom: 4rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+html.dark main article {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 最后一篇文章不需要分割线 */
+main article:last-of-type {
+  border-bottom: none;
+}
+
+/* =========================
+   文章标题
+   ========================= */
+main article h2,
+main article h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  main article h2,
+  main article h3 {
+    font-size: 1.55rem;
+  }
+}
+
+/* 标题链接过渡更自然 */
+main article h2 a,
+main article h3 a,
+main article h4 a {
+  transition: opacity 0.2s ease, text-decoration-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* 标题 hover 效果 */
+main article h2 a:hover,
+main article h3 a:hover,
+main article h4 a:hover {
+  opacity: 0.82;
   text-decoration: underline;
   text-underline-offset: 0.18em;
 }
 
-/* 给文章摘要一点层次 */
-article p {
-  color: rgba(100, 100, 100, 0.95);
+/* =========================
+   文章摘要
+   ========================= */
+main article p {
+  font-size: 1.06rem;
+  line-height: 1.95;
+  color: rgba(95, 95, 95, 0.95);
+  margin-bottom: 1rem;
 }
 
-html.dark article p {
-  color: rgba(180, 180, 180, 0.95);
+html.dark main article p {
+  color: rgba(190, 190, 190, 0.92);
 }
 
-/* Read more 按钮更像按钮 */
-article a[href]:has-text("Read more") {
+/* =========================
+   日期与元信息
+   ========================= */
+main article time,
+main article .date,
+main article .meta {
+  font-size: 0.95rem;
+  color: rgba(120, 120, 120, 0.9);
+  letter-spacing: 0.01em;
+}
+
+html.dark main article time,
+html.dark main article .date,
+html.dark main article .meta {
+  color: rgba(160, 160, 160, 0.88);
+}
+
+/* =========================
+   Read more 链接
+   ========================= */
+main article a[href]:not(h1 a):not(h2 a):not(h3 a):not(h4 a) {
   font-weight: 600;
+  text-underline-offset: 0.18em;
+  transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+main article a[href]:not(h1 a):not(h2 a):not(h3 a):not(h4 a):hover {
+  opacity: 0.82;
+}
+
+/* =========================
+   列表页整体宽度和呼吸感
+   ========================= */
+main {
+  padding-top: 1rem;
+}
+
+/* 让正文区域看起来更稳一点 */
+main > div,
+main > section {
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
 }
