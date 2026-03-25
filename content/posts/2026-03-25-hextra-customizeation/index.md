@@ -67,11 +67,11 @@ sudo bash deploy.sh # 重新执行编译部署
 在 `_index.md` 中使用居中排版的原生 HTML 作为 Hero Section，并搭配 Hextra 强大的 `{{</* cards */>}}` 组件展示核心特性与文章列表：
 
 ```markdown
-{{</* cards */>}}
+{{< cards >}}
   {{< card title="⚡️ 极速发布流" subtitle="基于 Webhook，每次 Push 自动云端编译。" >}}
   {{< card title="💅 现代化排版" subtitle="完全响应式，完美适配桌面与移动端。" >}}
   {{< card title="🌙 极客深色模式" subtitle="原生支持黑夜模式，保护折腾代码时的视力。" >}}
-{{</* /cards */>}}
+{{< /cards >}}
 ```
 
 至此，一个速度极快、无需复杂依赖、支持深浅色模式完美切换的现代化云端博客主页正式落成。每一次折腾，都是对底层机制更深一层的理解！
