@@ -8,142 +8,157 @@
   --hextra-max-footer-width: 88rem;
 }
 
-/* 全站正文更舒服一点 */
+/* =========================
+   全站基础
+   ========================= */
 .content {
   line-height: 1.85;
 }
 
-/* =========================
-   列表页：总标题更像总标题
-   ========================= */
-main h1 {
-  font-size: 2.9rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  margin-bottom: 3.2rem;
-  text-align: center;
+/* 正文链接过渡更自然 */
+.content a {
+  transition: opacity 0.2s ease, text-decoration-color 0.2s ease,
+    color 0.2s ease;
 }
 
-/* 窄屏下避免标题过大 */
+/* =========================
+   仅针对 /posts/ 列表页
+   结构来源：
+   main#content > h1
+   main#content > div.hx:mb-10 > h3 > a
+   ========================= */
+
+/* 列表页总标题“折腾笔记” */
+main#content > h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  text-align: center;
+  margin-top: 0.75rem;
+  margin-bottom: 3.25rem;
+}
+
+/* 手机端 */
 @media (max-width: 768px) {
-  main h1 {
-    font-size: 2.2rem;
+  main#content > h1 {
+    font-size: 2.15rem;
     margin-bottom: 2.4rem;
   }
 }
 
-/* =========================
-   文章列表整体层次优化
-   ========================= */
-
-/* 每篇文章之间拉开距离 */
-main article {
-  margin-bottom: 4rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+/* 列表容器本身 */
+main#content > div.hx\:mb-10 {
+  margin-top: 0.25rem;
 }
 
-html.dark main article {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+/* 每篇文章块：
+   你的列表页每篇文章是连续的 h3 + p + p + p 组合，
+   这里通过 h3 本身制造节奏。 */
+main#content > div.hx\:mb-10 h3 {
+  margin-top: 0;
+  margin-bottom: 0.95rem;
+  line-height: 1.3;
 }
 
-/* 最后一篇文章不需要分割线 */
-main article:last-of-type {
-  border-bottom: none;
+/* 从第二篇开始，和上一条文章拉开距离 */
+main#content > div.hx\:mb-10 h3:not(:first-of-type) {
+  margin-top: 3.2rem;
+  padding-top: 2.2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-/* =========================
-   文章标题
-   ========================= */
-main article h2,
-main article h3 {
+html.dark main#content > div.hx\:mb-10 h3:not(:first-of-type) {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 文章标题链接 */
+main#content > div.hx\:mb-10 h3 > a {
+  display: inline-block;
+  color: inherit !important;
+  text-decoration: none !important;
   font-size: 2rem;
   font-weight: 800;
   line-height: 1.3;
   letter-spacing: -0.02em;
-  margin-bottom: 1rem;
+  transition: opacity 0.2s ease, transform 0.2s ease,
+    text-decoration-color 0.2s ease;
 }
 
+/* 手机端标题稍小 */
 @media (max-width: 768px) {
-  main article h2,
-  main article h3 {
-    font-size: 1.55rem;
+  main#content > div.hx\:mb-10 h3 > a {
+    font-size: 1.5rem;
   }
 }
 
-/* 标题链接过渡更自然 */
-main article h2 a,
-main article h3 a,
-main article h4 a {
-  transition: opacity 0.2s ease, text-decoration-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-/* 标题 hover 效果 */
-main article h2 a:hover,
-main article h3 a:hover,
-main article h4 a:hover {
+/* 标题 hover */
+main#content > div.hx\:mb-10 h3 > a:hover {
   opacity: 0.82;
-  text-decoration: underline;
+  text-decoration: underline !important;
   text-underline-offset: 0.18em;
 }
 
-/* =========================
-   文章摘要
-   ========================= */
-main article p {
-  font-size: 1.06rem;
+/* 摘要段落：
+   截图里摘要对应 h3 后第一个 p，类里有 hx:opacity-80 hx:mt-4 hx:leading-7 */
+main#content > div.hx\:mb-10 h3 + p {
+  font-size: 1.05rem;
   line-height: 1.95;
   color: rgba(95, 95, 95, 0.95);
-  margin-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 0.95rem;
 }
 
-html.dark main article p {
+html.dark main#content > div.hx\:mb-10 h3 + p {
   color: rgba(190, 190, 190, 0.92);
 }
 
-/* =========================
-   日期与元信息
-   ========================= */
-main article time,
-main article .date,
-main article .meta {
-  font-size: 0.95rem;
-  color: rgba(120, 120, 120, 0.9);
-  letter-spacing: 0.01em;
+/* Read more 所在段落 */
+main#content > div.hx\:mb-10 h3 + p + p {
+  margin-top: 0;
+  margin-bottom: 0.85rem;
 }
 
-html.dark main article time,
-html.dark main article .date,
-html.dark main article .meta {
-  color: rgba(160, 160, 160, 0.88);
-}
-
-/* =========================
-   Read more 链接
-   ========================= */
-main article a[href]:not(h1 a):not(h2 a):not(h3 a):not(h4 a) {
+/* Read more 链接 */
+main#content > div.hx\:mb-10 h3 + p + p a {
   font-weight: 600;
+  text-decoration: none;
   text-underline-offset: 0.18em;
   transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
 }
 
-main article a[href]:not(h1 a):not(h2 a):not(h3 a):not(h4 a):hover {
+main#content > div.hx\:mb-10 h3 + p + p a:hover {
   opacity: 0.82;
+  text-decoration: underline;
+}
+
+/* 日期段落 */
+main#content > div.hx\:mb-10 h3 + p + p + p {
+  font-size: 0.95rem;
+  color: rgba(120, 120, 120, 0.9);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+html.dark main#content > div.hx\:mb-10 h3 + p + p + p {
+  color: rgba(160, 160, 160, 0.88);
+}
+
+/* 列表页整体呼吸感 */
+main#content {
+  padding-top: 0.75rem;
 }
 
 /* =========================
-   列表页整体宽度和呼吸感
+   首页轻量保留
+   不碰你现在首页结构，只做非常轻的优化
    ========================= */
-main {
-  padding-top: 1rem;
+body:not(.hextra-blog-list) .content h2 {
+  line-height: 1.4;
 }
 
-/* 让正文区域看起来更稳一点 */
-main > div,
-main > section {
-  max-width: 52rem;
-  margin-left: auto;
-  margin-right: auto;
+/* 卡片区标题稍稳一点 */
+.content .hextra-cards h3,
+.content .hextra-cards strong {
+  letter-spacing: -0.01em;
 }
