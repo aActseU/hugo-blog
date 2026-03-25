@@ -1,14 +1,14 @@
 baseURL = 'http://13.212.22.21/'
 languageCode = 'zh-cn'
-title = '我的云端博客'
+title = 'NEWTONKING'
 theme = 'hextra'
 
-# 1. 开启中日韩语言支持 (移到顶部作为全局配置)
+# 开启中日韩语言支持
 hasCJKLanguage = true
 
-# ==========================================
-# 核心新增：允许渲染 Markdown 中的 HTML 代码
-# ==========================================
+# 开启 Git 信息解析
+enableGitInfo = true
+
 [markup.goldmark.renderer]
 unsafe = true
 
@@ -21,10 +21,21 @@ noClasses = false
   weight = 1
 
 [[menu.main]]
-  name = "关于我"
+  name = "关于"
   pageRef = "/about" 
   weight = 2
 
-[params.hextra.search]
+[[menu.main]]
+  name = ""
+  weight = 3
+  params = { type = "search"}
+
+# 主题全局参数配置
+[params]
+  displayUpdatedDate = true
+  # 自定义日期格式（注意：2006年01月02日 是 Hugo 的固定占位符，请勿更改这里的数字）
+  dateFormat = "2006年01月02日"
+
+[params.search]
   enable = true
-  flexsearch = true
+  type = "flexsearch"
