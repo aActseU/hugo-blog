@@ -3,6 +3,15 @@ languageCode = 'zh-cn'
 title = '我的云端博客'
 theme = 'hextra'
 
+# 1. 开启中日韩语言支持 (移到顶部作为全局配置)
+hasCJKLanguage = true
+
+# ==========================================
+# 核心新增：允许渲染 Markdown 中的 HTML 代码
+# ==========================================
+[markup.goldmark.renderer]
+unsafe = true
+
 [markup.highlight]
 noClasses = false
 
@@ -10,13 +19,11 @@ noClasses = false
   name = "文章"
   pageRef = "/posts"
   weight = 1
+
 [[menu.main]]
   name = "关于我"
   pageRef = "/about" 
   weight = 2
-
-# 1. 开启中日韩语言支持（极其重要，否则中文搜索会搜不到！）
-hasCJKLanguage = true
 
 [params.hextra.search]
   enable = true
