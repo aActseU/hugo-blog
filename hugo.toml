@@ -12,6 +12,14 @@ hasCJKLanguage = true
 [markup.goldmark.renderer]
 unsafe = true
 
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    # 段落（块级）公式支持 \[ \] 和 $$ $$
+    block = [['\[', '\]'], ['$$', '$$']]
+    # 行内公式支持官方的 \( \) 以及你习惯使用的 $ $
+    inline = [['\(', '\)'], ['$', '$']]
+
 [markup.highlight]
 noClasses = false
 
