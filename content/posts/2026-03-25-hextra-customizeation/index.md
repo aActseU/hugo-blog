@@ -1,4 +1,8 @@
-# 给云端博客换上新装：Hextra 主题美化与 Hugo 缓存“毒药”排雷实录
+--- 
+title: 给云端博客换上新装：Hextra 主题美化与 Hugo 缓存“毒药”排雷实录
+date: 2026-03-24T17:30:00+09:00 
+draft: false
+---
 
 之前在 AWS 小机器上搭好了基于“Hugo + Nginx + Webhook”的极速全自动部署系统，实现了本地 Push、云端自动发布的丝滑体验。最近看着简陋的默认主题，决定给博客换上一套基于 Tailwind CSS 打造的现代化主题：**Hextra**。
 
