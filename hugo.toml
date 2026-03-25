@@ -7,8 +7,8 @@ theme = 'hextra'
 noClasses = false
 
 [[menu.main]]
-  name = "博客"
-  pageRef = "/blog"
+  name = "文章"
+  pageRef = "/posts"
   weight = 1
 [[menu.main]]
   name = "关于我"
