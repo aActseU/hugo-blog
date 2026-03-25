@@ -14,3 +14,10 @@ noClasses = false
   name = "关于我"
   pageRef = "/about" 
   weight = 2
+
+# 1. 开启中日韩语言支持（极其重要，否则中文搜索会搜不到！）
+hasCJKLanguage = true
+
+[params.hextra.search]
+  enable = true
+  flexsearch = true
