@@ -64,7 +64,7 @@ sudo bash deploy.sh # 重新执行编译部署
 
 经过这一系列折腾，最终采用了最安全、最符合主题生态的方案：**抛弃复杂的 Node.js 编译，直接利用 Hextra 内置的 Shortcodes 和安全的内联 HTML 样式。**
 
-在 `_index.md` 中使用居中排版的原生 HTML 作为 Hero Section，并搭配 Hextra 强大的 `{{< cards >}}` 组件展示核心特性与文章列表：
+在 `_index.md` 中使用居中排版的原生 HTML 作为 Hero Section，并搭配 Hextra 强大的 `{{</* cards */>}}` 组件展示核心特性与文章列表：
 
 ```markdown
 {{</* cards */>}}
