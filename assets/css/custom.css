@@ -30,7 +30,7 @@
 
 /* 列表页总标题“折腾笔记” */
 main#content > h1 {
-  font-size: 2.75rem;
+  font-size: 2.7rem;
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.12;
@@ -63,8 +63,8 @@ main#content > div.hx\:mb-10 h3 {
 
 /* 从第二篇开始，和上一条文章拉开距离 */
 main#content > div.hx\:mb-10 h3:not(:first-of-type) {
-  margin-top: 3.2rem;
-  padding-top: 2.2rem;
+  margin-top: 2.8rem;
+  padding-top: 1.8rem;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
