@@ -1,6 +1,6 @@
 ---
 title: Hextra 主题美化与 Webhook 部署“样式裸奔”踩坑实录"
-date: 2026-03-25T10:00:00+08:00
+date: 2026-03-25T14:00:00+08:00
 draft: false
 categories: ["技术折腾"]
 tags: ["Hugo", "Hextra", "AWS", "Webhook", "自动化部署"]
