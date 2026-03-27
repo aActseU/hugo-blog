@@ -1,5 +1,5 @@
 --- 
-title: 给云端博客换上新装：Hextra 主题美化与 Hugo 缓存“毒药”排雷实录
+title: Hextra 主题美化与 Hugo 缓存排雷
 date: 2026-03-25T12:00:00+09:00 
 draft: false
 ---

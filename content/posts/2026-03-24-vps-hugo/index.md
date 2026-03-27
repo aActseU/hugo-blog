@@ -1,5 +1,6 @@
 --- 
-title: 避坑指南：AWS 小机 & 纯 IP 的 Hugo + Nginx 极速全自动部署实战
+title: VPS + Hugo 自动化部署笔记：云端篇
+description: "创建属于自己的博客小站，部署到云端。基于 Hugo + Nginx + Webhook 的极速全自动部署系统。"
 date: 2026-03-24T17:30:00+09:00 
 draft: false
 ---
