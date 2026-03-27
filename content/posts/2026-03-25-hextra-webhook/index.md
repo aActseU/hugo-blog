@@ -1,12 +1,12 @@
 ---
-title: Hextra 主题美化与 Webhook 部署“样式裸奔”踩坑实录"
+title: Hextra 主题美化踩坑实录 2
 date: 2026-03-25T14:00:00+08:00
 draft: false
 categories: ["技术折腾"]
 tags: ["Hugo", "Hextra", "AWS", "Webhook", "自动化部署"]
 ---
 
-最近给在 AWS 云端部署的 Hugo 博客换上了基于 Tailwind CSS 的现代化主题：Hextra。在享受“本地 Push、云端自动发布”丝滑体验的同时，也踩了几个前端配置和后台自动化脚本的坑。特此复盘记录，以备后查。
+最近给在 AWS 云端部署的 Hugo 博客换上了基于 Tailwind CSS 的现代化主题：Hextra。在享受“本地 Push、云端自动发布”丝滑体验的同时，也踩了几个前端配置和后台自动化脚本的坑。特此复盘记录，以备后查。这次主要是 Webhook 部署“样式裸奔”的问题。
 
 ## 1. Hextra 列表页美化：告别单薄的纯文本流
 
