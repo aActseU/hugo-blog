@@ -1,45 +1,81 @@
 ---
-title: "小站"
+title: ""
 ---
 
-<br><br>
-
-<div align="center">
-  <h1 style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem;">折腾、学习，顺手记下来</h1>
-  <p style="font-size: 1.15rem; color: gray; margin-bottom: 2.5rem; max-width: 760px; margin-left: auto; margin-right: auto; line-height: 1.8;">
-    这里记录我在云服务器、个人博客、网络环境配置上的折腾过程，
-    也慢慢写一些人工智能、数学、历史方面的学习笔记，以及偶然冒出来的心得体会。
-    <br><br>
-    写下来，是为了给未来的自己留一份能回看的路书。
+<div class="nx-home-intro-card">
+  <p class="nx-home-intro-card__eyebrow">NEWTONKING'S BLOG</p>
+  <h1 class="nx-home-intro-card__title">
+    记录云服务器、<span>Hugo</span> 与自动化部署
+  </h1>
+  <p class="nx-home-intro-card__lead">
+    这里主要写 AWS、Nginx、Hextra、Webhook、网络服务配置，以及搭建个人技术博客过程中的真实问题和处理记录。
   </p>
-
-  <a href="/posts" style="display: inline-block; padding: 12px 28px; background-color: #3b82f6; color: white; border-radius: 9999px; text-decoration: none; font-weight: bold; margin-right: 15px;">看看最近写了什么</a>
-  <a href="/about" style="text-decoration: none; font-weight: bold; color: #3b82f6;">关于这个站 &rarr;</a>
+  <p class="nx-home-intro-card__copy">
+    我更关心一套东西怎么真正跑起来，也会把踩坑、修复、配置取舍和最终方案整理成可复用的笔记。
+  </p>
+  <div class="nx-home-intro-card__actions">
+    <a class="nx-home-intro-card__button nx-home-intro-card__button--primary" href="/posts/">查看文章</a>
+    <a class="nx-home-intro-card__button nx-home-intro-card__button--secondary" href="/about/">关于我</a>
+  </div>
+  <div class="nx-home-intro-card__topics">
+    <span>AWS</span>
+    <span>Hugo</span>
+    <span>Hextra</span>
+    <span>Nginx</span>
+    <span>Webhook</span>
+    <span>Self-Hosted</span>
+  </div>
 </div>
 
-<br><br><br>
+<section class="nx-home-manual-latest">
+  <div class="nx-home__section-head">
+    <h2 class="nx-home__section-title">Latest Posts</h2>
+  </div>
 
-## 我主要在记录什么
+  <div class="nx-home__latest-items">
+    <article class="nx-home-post">
+      <p class="nx-home-post__date">March 25, 2026</p>
+      <div class="nx-home-post__body">
+        <h3 class="nx-home-post__title"><a href="/posts/2026-03-25-hextra-webhook/">Hextra 主题美化踩坑实录 2</a></h3>
+        <p class="nx-home-post__summary">记录 AWS 上 Hugo 博客切换到 Hextra 后，在 Webhook 自动部署、样式资源和前端细节上遇到的问题与修复过程。</p>
+        <p class="nx-home-post__cta"><a href="/posts/2026-03-25-hextra-webhook/">Read more -></a></p>
+      </div>
+    </article>
 
-{{< cards >}}
-  {{< card title="云服务器与网络折腾" subtitle="记录 VPS、网络节点、环境配置、端口与服务部署中的实际问题与解决过程。" >}}
-  {{< card title="个人博客与自动部署" subtitle="从 Hugo 写作到云端发布，持续整理主题美化、部署链路与维护细节。" >}}
-  {{< card title="学习笔记与偶然心得" subtitle="把人工智能、数学、历史中的阅读、学习和一些零散想法慢慢沉淀下来。" >}}
-{{< /cards >}}
+    <article class="nx-home-post">
+      <p class="nx-home-post__date">March 25, 2026</p>
+      <div class="nx-home-post__body">
+        <h3 class="nx-home-post__title"><a href="/posts/2026-03-25-hextra-customizeation/">Hextra 主题美化踩坑实录 1</a></h3>
+        <p class="nx-home-post__summary">从默认主题迁移到 Hextra，梳理首页、列表页、样式覆盖和站点视觉统一时的关键取舍与改造过程。</p>
+        <p class="nx-home-post__cta"><a href="/posts/2026-03-25-hextra-customizeation/">Read more -></a></p>
+      </div>
+    </article>
 
-<br>
+    <article class="nx-home-post">
+      <p class="nx-home-post__date">March 24, 2026</p>
+      <div class="nx-home-post__body">
+        <h3 class="nx-home-post__title"><a href="/posts/2026-03-24-vps-hugo/">VPS + Hugo 自动化部署笔记：云端篇</a></h3>
+        <p class="nx-home-post__summary">围绕云服务器端的 Nginx、访问链路、安全组与博客部署，把实际运行中需要处理的配置细节系统整理下来。</p>
+        <p class="nx-home-post__cta"><a href="/posts/2026-03-24-vps-hugo/">Read more -></a></p>
+      </div>
+    </article>
 
-## 最近写的几篇
+    <article class="nx-home-post">
+      <p class="nx-home-post__date">March 24, 2026</p>
+      <div class="nx-home-post__body">
+        <h3 class="nx-home-post__title"><a href="/posts/2026-03-24-local-hugo/">VPS + Hugo 自动化部署笔记：本地篇</a></h3>
+        <p class="nx-home-post__summary">从 Windows 本地环境开始，记录 Hugo 安装、目录结构、写作流程和连接到后续自动部署链路的准备工作。</p>
+        <p class="nx-home-post__cta"><a href="/posts/2026-03-24-local-hugo/">Read more -></a></p>
+      </div>
+    </article>
 
-{{< cards >}}
-  {{< card link="/posts/2026-03-24-local-hugo/" title="AWS + Hugo 自动化部署探索" subtitle="从本地环境到云端自动编译，把博客发布流程真正跑通。" >}}
-  {{< card link="/posts/2026-03-24-aws-singbox/" title="部署特定服务避坑指南" subtitle="围绕实际环境配置，把遇到的问题和处理方式记下来。" >}}
-  {{< card link="/posts/2026-03-24-vps-hugo/" title="服务器端 Nginx 与安全组" subtitle="记录网络、端口和服务访问链路中的关键配置。" >}}
-{{< /cards >}}
-
-<br>
-
-## 为什么要写这个站
-
-> 很多路当时走过，后来就忘了；很多坑当时踩过，过阵子又会再踩一次。  
-> 所以我想把它们认真记下来。哪怕一开始只是写给自己看，时间久了，也许会对别人有一点帮助。
+    <article class="nx-home-post">
+      <p class="nx-home-post__date">March 24, 2026</p>
+      <div class="nx-home-post__body">
+        <h3 class="nx-home-post__title"><a href="/posts/2026-03-24-aws-singbox/">自建节点宝宝级教程</a></h3>
+        <p class="nx-home-post__summary">以 AWS VPS 与 sing-box 为例，把网络通道、自建节点和部署细节拆开写清楚，适合作为初次实践的完整记录。</p>
+        <p class="nx-home-post__cta"><a href="/posts/2026-03-24-aws-singbox/">Read more -></a></p>
+      </div>
+    </article>
+  </div>
+</section>
