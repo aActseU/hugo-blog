@@ -19,11 +19,29 @@
 }
 
 /* Home page */
+body:has(.nx-home-intro-card) .hextra-sidebar-container,
+body:has(.nx-home-intro-card) .hextra-toc {
+  display: none;
+}
+
+body:has(.nx-home-intro-card) .hextra-max-page-width {
+  max-width: 96rem;
+}
+
+body:has(.nx-home-intro-card) article {
+  justify-content: flex-start;
+  padding-right: max(env(safe-area-inset-right), 1.5rem);
+}
+
+body:has(.nx-home-intro-card) main#content.hextra-max-content-width {
+  max-width: 78rem;
+}
+
 .nx-home-intro-card {
   position: relative;
   overflow: hidden;
   margin: 1.25rem 0 3rem;
-  padding: 2.6rem 2.4rem;
+  padding: 2.7rem 2.6rem;
   border: 1px solid rgba(15, 23, 42, 0.06);
   border-radius: 1.8rem;
   background:
@@ -45,10 +63,11 @@
 
 .nx-home-intro-card__title {
   margin: 0;
-  font-size: clamp(2.35rem, 5vw, 4rem);
+  max-width: 56rem;
+  font-size: clamp(2.6rem, 5vw, 4.35rem);
   font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
+  line-height: 1.03;
+  letter-spacing: -0.045em;
   color: rgb(15, 23, 42);
 }
 
@@ -60,19 +79,19 @@
 }
 
 .nx-home-intro-card__lead {
-  margin: 1.15rem 0 0;
-  font-size: 1.18rem;
-  line-height: 1.85;
+  margin: 1.2rem 0 0;
+  max-width: 60rem;
+  font-size: 1.12rem;
+  line-height: 1.95;
   color: rgba(51, 65, 85, 0.96);
-  max-width: 54rem;
 }
 
 .nx-home-intro-card__copy {
-  margin: 0.85rem 0 0;
+  margin: 0.8rem 0 0;
+  max-width: 57rem;
   font-size: 1rem;
-  line-height: 1.9;
+  line-height: 1.95;
   color: rgba(71, 85, 105, 0.92);
-  max-width: 52rem;
 }
 
 .nx-home-intro-card__actions {
@@ -172,7 +191,7 @@
 
 .nx-home-post {
   display: grid;
-  grid-template-columns: 11rem minmax(0, 1fr);
+  grid-template-columns: 10.5rem minmax(0, 1fr);
   gap: 1.5rem;
   align-items: start;
   padding: 1.45rem 1.5rem;
@@ -288,6 +307,10 @@ html.dark .nx-home-post:hover {
 }
 
 @media (max-width: 768px) {
+  body:has(.nx-home-intro-card) article {
+    padding-right: max(env(safe-area-inset-right), 0rem);
+  }
+
   .nx-home-intro-card {
     margin-top: 0.75rem;
     padding: 1.6rem 1.2rem;
