@@ -3,6 +3,7 @@ title: VPS + Hugo 自动化部署笔记：云端篇
 description: "创建属于自己的博客小站，部署到云端。基于 Hugo + Nginx + Webhook 的极速全自动部署系统。"
 date: 2026-03-24T17:30:00+09:00 
 draft: false
+tags: ["Hugo", "VPS", "Nginx"]
 ---
 
 在 2026 年的今天，拥有一个属于自己的博客依然是记录思考、分享技术的最酷方式。对于我们这些手握 AWS EC2 t2.micro 这种“小机器”的技术人来说，传统的 Jenkins 或 GitLab CI 部署方案简直就是“内存杀手”。

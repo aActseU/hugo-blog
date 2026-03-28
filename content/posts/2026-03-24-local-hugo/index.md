@@ -3,6 +3,7 @@ title: VPS + Hugo 自动化部署笔记：本地篇
 description: "创建属于自己的博客小站，从本地开始。Windows 环境的 Hugo 本地环境搭建，以 ananke 主题为例。"
 date: 2026-03-24T17:30:00+09:00 
 draft: false
+tags: ["Hugo", "Windows"]
 ---
 
 ## 📋 核心逻辑简述

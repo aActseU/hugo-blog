@@ -2,6 +2,7 @@
 title: Hextra 主题美化踩坑实录 1 
 date: 2026-03-25T12:00:00+09:00 
 draft: false
+tags: ["Hugo", "Hextra"]
 ---
 
 之前在 AWS 小机器上搭好了基于“Hugo + Nginx + Webhook”的极速全自动部署系统，实现了本地 Push、云端自动发布的丝滑体验。最近看着简陋的默认主题，决定给博客换上一套基于 Tailwind CSS 打造的现代化主题：**Hextra**。

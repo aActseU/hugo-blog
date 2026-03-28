@@ -34,10 +34,18 @@ noClasses = false
   weight = 2
 
 [[menu.main]]
-  name = ""
+  name = "标签"
+  pageRef = "/tags"
   weight = 3
+
+[[menu.main]]
+  name = ""
+  weight = 4
   params = { type = "search"}
 
 [params.search]
   enable = true
   type = "flexsearch"
+
+[params.blog.list]
+  displayTags = true
