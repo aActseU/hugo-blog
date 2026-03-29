@@ -135,10 +135,10 @@ sudo nano /etc/sing-box/config.json
     {
       "type": "vless",
       "listen": "::",
-      "listen_port": 443,
+      "listen_port": 8443, # 推荐 8443，避免端口冲突
       "users": [
         {
-          "uuid": "4a304932-6416-4f58-bfa3-61eb3d39334c",
+          "uuid": "你的uuid",
           "flow": "xtls-rprx-vision"
         }
       ],
@@ -151,9 +151,9 @@ sudo nano /etc/sing-box/config.json
             "server": "www.cloudflare.com",
             "server_port": 443
           },
-          "private_key": "4FjjuZo4UAWVCF3dtrzWD1WR-e37Oc39B6ZT6TQ6H2U",
+          "private_key": "你的私钥",
           "short_id": [
-            "f33d0dfa691aab67"
+            "你的short_id"
           ]
         }
       }
