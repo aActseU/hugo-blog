@@ -1,7 +1,7 @@
 --- 
 title: "自建节点宝宝教程" 
 description: "利用 AWS VPS 与 sing-box 搭建你的私人专属网络通道"
-date: 2026-03-24T17:30:00+09:00 
+date: 2026-04-22T22:30:00+09:00 
 draft: false
 tags: ["VPS", "自建服务", "Sing-box"]
 
