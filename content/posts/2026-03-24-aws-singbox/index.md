@@ -1,5 +1,5 @@
 --- 
-title: "自建节点宝宝级教程" 
+title: "自建节点记录" 
 description: "利用 AWS VPS 与 sing-box 搭建你的私人专属网络通道"
 date: 2026-03-24T17:30:00+09:00 
 draft: false
