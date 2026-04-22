@@ -5,13 +5,10 @@ title: ""
 <div class="nx-home-intro-card">
   <p class="nx-home-intro-card__eyebrow">PERSONAL TECH NOTES</p>
   <h1 class="nx-home-intro-card__title">
-    把折腾云服务器、<span>Hugo</span> 和部署流程的过程记下来
+    欢迎来到我的主页。
   </h1>
   <p class="nx-home-intro-card__lead">
-    这是一个偏个人记录的技术博客。主要写 AWS、Nginx、Hextra、Webhook、自建服务，以及把博客从本地写作一路跑到云端部署的过程。
-  </p>
-  <p class="nx-home-intro-card__copy">
-    我会把遇到的问题、查找思路、配置取舍和最后真正可用的方案记下来。不是教程拼贴，更像是一份持续整理中的实践笔记。
+    这里是<span>Netwonking</span>的博客，留存他在学习、折腾、生活中的点点记录。
   </p>
   <div class="nx-home-intro-card__actions">
     <a class="nx-home-intro-card__button nx-home-intro-card__button--primary" href="/posts/">去看文章</a>
