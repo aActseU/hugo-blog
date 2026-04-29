@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --primary-hue: 225deg;
   --primary-saturation: 85%;
   --primary-lightness: 58%;
@@ -216,7 +216,7 @@ body:has(.nx-home-intro-card) main#content.hextra-max-content-width {
   font-size: 0.9rem;
 }
 
-.nx-home-manual-latest {
+.nx-home-latest {
   margin-top: 0.5rem;
 }
 
@@ -277,7 +277,7 @@ body:has(.nx-home-intro-card) main#content.hextra-max-content-width {
 
 .nx-home-post__title {
   margin: 0;
-  font-size: 1.55rem;
+  font-size: 1.48rem;
   line-height: 1.25;
   letter-spacing: -0.02em;
 }
@@ -293,18 +293,23 @@ body:has(.nx-home-intro-card) main#content.hextra-max-content-width {
 }
 
 .nx-home-post__summary {
-  margin: 0.9rem 0 0;
+  margin: 0.75rem 0 0;
   color: rgba(71, 85, 105, 0.95);
   line-height: 1.9;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
 }
 
 .nx-home-post__cta {
-  margin: 1rem 0 0;
+  margin: 0.8rem 0 0;
 }
 
 .nx-home-post__cta a {
-  color: rgb(236, 72, 153);
-  font-weight: 700;
+  color: rgba(236, 72, 153, 0.92);
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -598,3 +603,6 @@ body:not(.hextra-blog-list) .content h2 {
 .content .hextra-cards strong {
   letter-spacing: -0.01em;
 }
+
+
+

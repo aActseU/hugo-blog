@@ -1,0 +1,40 @@
+﻿{{ define "main" }}
+  {{- $readMore := "继续阅读 ->" -}}
+  {{- $latestLimit := 5 -}}
+  {{- $postsSection := site.GetPage "section" "posts" -}}
+  <div class='hx:mx-auto hx:flex hextra-max-page-width'>
+    {{ partial "sidebar.html" (dict "context" . "disableSidebar" true "displayPlaceholder" true) }}
+    {{ partial "toc.html" . }}
+    <article class="hx:w-full hx:break-words hx:flex hx:min-h-[calc(100vh-var(--navbar-height))] hx:min-w-0 hx:justify-center hx:pb-8 hx:pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+      <main id="content" class="hx:w-full hx:min-w-0 hextra-max-content-width hx:px-6 hx:pt-4 hx:md:px-12">
+        {{ if .Title }}<h1 class="hx:text-center hx:mt-2 hx:text-4xl hx:font-bold hx:tracking-tight hx:text-slate-900 hx:dark:text-slate-100">{{ .Title }}</h1>{{ end }}
+        <div class="content">
+          {{ .Content }}
+        </div>
+
+        {{ with $postsSection }}
+          {{- $latestPosts := first $latestLimit (.RegularPages.ByDate.Reverse) -}}
+          {{- if gt (len $latestPosts) 0 -}}
+            <section class="nx-home-latest">
+              <div class="nx-home__section-head">
+                <h2 class="nx-home__section-title">最近记录</h2>
+              </div>
+              <div class="nx-home__latest-items">
+                {{- range $latestPosts }}
+                  <article class="nx-home-post">
+                    <p class="nx-home-post__date">{{ partial "utils/format-date" .Date }}</p>
+                    <div class="nx-home-post__body">
+                      <h3 class="nx-home-post__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                      <p class="nx-home-post__summary">{{ partial "utils/page-description" . }}</p>
+                      <p class="nx-home-post__cta"><a href="{{ .RelPermalink }}" aria-label="{{ printf "%s %s" $readMore .Title }}">{{ $readMore }}</a></p>
+                    </div>
+                  </article>
+                {{- end }}
+              </div>
+            </section>
+          {{- end }}
+        {{ end }}
+      </main>
+    </article>
+  </div>
+{{ end }}
